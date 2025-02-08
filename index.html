@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>10 Cricket Facts</title>
+<style>
+body {
+  font-family: sans-serif;
+}
+#container {
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;
+}
+h1 {
+  color: #333;
+}
+.fact {
+  background-color: #f2f2f2;
+  padding: 20px;
+  margin: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: none; /* Initially hide the fact */
+}
+.fact.show {
+  display: block; /* Show the fact when this class is added */
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <h1>10 Interesting Cricket Facts</h1>
+  <button id="generateFact">Generate a Fact</button>
+  <div id="facts"></div>
+</div>
+
+<script>
+const facts = [
+  {
+    "fact": "Origins in England",
+    "description": "Cricket originated in England, with its earliest known reference dating back to the 16th century."
+  },
+  {
+    "fact": "Two Teams",
+    "description": "Cricket is played between two teams of 11 players each."
+  },
+  {
+    "fact": "Objective",
+    "description": "The objective of the game is to score more runs than the opposing team."
+  },
+  {
+    "fact": "Bats and a Ball",
+    "description": "Cricket is played with a bat (made of willow wood) and a ball (made of cork, string, and leather)."
+  },
+  {
+    "fact": "Wickets",
+    "description": "Two wickets (sets of three stumps) are placed at each end of the pitch (playing area)."
+  },
+  {
+    "fact": "Different Formats",
+    "description": "Cricket is played in three main formats: Test matches (played over five days), One Day Internationals (ODIs, limited to 50 overs per side), and Twenty20 (T20, limited to 20 overs per side)."
+  },
+  {
+    "fact": "The Ashes",
+    "description": "The Ashes is a famous Test cricket series played between England and Australia."
+  },
+  {
+    "fact": "International Governing Body",
+    "description": "The International Cricket Council (ICC) is the sport's global governing body."
+  },
+  {
+    "fact": "Popular in South Asia",
+    "description": "Cricket enjoys immense popularity in South Asian countries such as India, Pakistan, Sri Lanka, and Bangladesh."
+  },
+  {
+    "fact": "Longest Six",
+    "description": "The longest recorded six (a shot where the ball is hit out of the playing area on the full) in cricket history is estimated to be over 160 meters (525 feet)."
+  }
+];
+
+const factsContainer = document.getElementById('facts');
+const generateFactButton = document.getElementById('generateFact');
+
+function generateRandomFact() {
+  const randomIndex = Math.floor(Math.random() * facts.length);
+  const fact = facts[randomIndex];
+
+  const factDiv = document.createElement('div');
+  factDiv.classList.add('fact', 'show'); // Add 'show' class to display
+  factDiv.innerHTML = `<h3>${fact.fact}</h3><p>${fact.description}</p>`;
+
+  // Clear previous fact and add the new one
+  factsContainer.innerHTML = ''; 
+  factsContainer.appendChild(factDiv);
+}
+
+generateFactButton.addEventListener('click', generateRandomFact);
+</script>
+
+</body>
+</html>
